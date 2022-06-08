@@ -1,6 +1,6 @@
 <div class="container">
 
-  <!-- {{#if isDevelopment}} -->
+  {{#if isDevelopment}}
   <form class="my-5 mx-auto" action="/" method="post">
     <div class="row mb-3">
       <div class="col">
@@ -19,21 +19,21 @@
       </div>
     </div>
   </form>
-  <!-- {{/if}} -->
+  {{/if}}
 
-  <h1 class="text-center text-white mb-5">Tutorials</h1>
+  <h1 class="text-center text-white my-5">Tutorials</h1>
   {{#each tutorials}}
     <div class="rounded-3 bgcs-black mb-3 px-3 py-2">
       <a href="/{{this._id}}" class="text-decoration-none">
         <p class="text-white fs-5 mb-0">{{this.title}}</p>
         <p class="text-white small mb-0">{{this.description}}</p>
       </a>
-      <!-- {{#if isDevelopment}} -->
+      {{#if isDevelopment}}
       <div class="d-grid gap-3 d-flex justify-content-end">
         <button type="button" id="editBtn" class="badge text-bg-warning border-0" data-url={{this.url}}/{{this._id}}>Edit</button>
         <button type="button" id="deleteBtn" class="badge text-bg-danger border-0" data-id={{this._id}}>Delete</button>
       </div>
-      <!-- {{/if}} -->
+      {{/if}}
     </div>
   {{/each}}
 
