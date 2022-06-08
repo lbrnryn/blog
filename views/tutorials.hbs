@@ -1,0 +1,40 @@
+<div class="container">
+
+  {{#if isDevelopment}}
+    <form class="my-5 mx-auto" action="/" method="post">
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" id="title" class="form-control form-control-sm" name="title" placeholder="Title..." required>
+        </div>
+        <div class="col">
+          <input type="text" id="description" class="form-control form-control-sm" name="description" placeholder="Description..." required>
+        </div>
+        <div class="col-1 d-grid px-0">
+          <button class="btn btn-sm btn-outline-light" type="submit"><i class="bi bi-caret-right"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <textarea id="lesson" class="form-control" name="lesson" placeholder="Lesson..." required></textarea>
+        </div>
+      </div>
+    </form>
+  {{/if}}
+
+  <h1 class="text-center text-white mb-5">Tutorials</h1>
+  {{#each tutorials}}
+    <div class="rounded-3 bgcs-black mb-3 px-3 py-2">
+      <a href="/{{this._id}}" class="text-decoration-none">
+        <p class="text-white fs-5 mb-0">{{this.title}}</p>
+        <p class="text-white small mb-0">{{this.description}}</p>
+      </a>
+      {{#if isDevelopment}}
+        <div class="d-grid gap-3 d-flex justify-content-end">
+          <button type="button" id="editBtn" class="badge text-bg-warning border-0" data-url={{this.url}}/{{this._id}}>Edit</button>
+          <button type="button" id="deleteBtn" class="badge text-bg-danger border-0" data-id={{this._id}}>Delete</button>
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+
+</div>
